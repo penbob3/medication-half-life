@@ -29,23 +29,27 @@ export default {
 
         const intervalsegcount = 96 //How many 15min intervals to output
         let intervalarray = [] //Array of the value of each interval
+        let highpointarray = [] //Array of which intervals should have points on them
         let currentamount = 0 //The current amount of drug present
         let halflife = 10 //Half life in hours
         let decayrate = 0.693 / (halflife * 4) //Amount per interval that the drug is reduced by
         console.log(decayrate)
 
         for (let i = 0; i < intervalsegcount; i++) {
+            let isHighPoint = 0
             eventlist.forEach((event, idx) => {
                 if (i >= event.startseg && i < (event.startseg + event.length)) {
                     currentamount += (event.change / event.length)
+                    isHighPoint = 4
                 }
             })
             currentamount = currentamount - (currentamount * decayrate)
             intervalarray.push(currentamount)
+            highpointarray.push(isHighPoint)
         }
 
         console.log('help')
-        this.$emit('dataupdate', intervalarray)
+        this.$emit('dataupdate', {intervals: intervalarray, highpoints: highpointarray})
     }
 }
 </script>

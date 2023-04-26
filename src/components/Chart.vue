@@ -16,7 +16,7 @@ const genlabels = (() => {
 
 export default {
     name: 'Chart',
-    props: [ "dataarray" ],
+    props: [ "dataarray", "highpointarray" ],
     data() {
         return {
             options: {
@@ -51,7 +51,8 @@ export default {
                     borderColor: '#73fffa',
                     //data: [40, 39, 10, 40, 39, 80, 40, 40, 39, 10, 40, 39, 80, 40, 40, 39, 10, 40, 39, 80, 40, 39, 80, 40,40, 39, 10, 40, 39, 80, 40, 40, 39, 10, 40, 39, 80, 40, 40, 39, 10, 40, 39, 80, 40, 39, 80, 40,40, 39, 10, 40, 39, 80, 40, 40, 39, 10, 40, 39, 80, 40, 40, 39, 10, 40, 39, 80, 40, 39, 80, 40,40, 39, 10, 40, 39, 80, 40, 40, 39, 10, 40, 39, 80, 40, 40, 39, 10, 40, 39, 80, 40, 39, 80, 40],
                     data: this.dataarray,
-                    cubicInterpolationMode: 'default'
+                    cubicInterpolationMode: 'default',
+                    pointRadius: this.highpointarray
                     }
                 ]
             }

@@ -10,7 +10,7 @@
                 <EventList @dataupdate="onChange"></EventList>
             </td>
             <td>
-                <Chart :dataarray="dataarray"></Chart>
+                <Chart :dataarray="dataarray.intervals" :highpointarray="dataarray.highpoints"></Chart>
             </td>
         </tr>
     </table>
